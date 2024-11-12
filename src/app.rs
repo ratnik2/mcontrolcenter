@@ -66,19 +66,34 @@ impl Application for AppModel {
         let mut nav = nav_bar::Model::default();
 
         nav.insert()
-            .text(fl!("page-id", num = 1))
+            .text(fl!("info"))
             .data::<Page>(Page::Page1)
             .icon(icon::from_name("applications-science-symbolic"))
             .activate();
 
         nav.insert()
-            .text(fl!("page-id", num = 2))
+            .text(fl!("mode"))
             .data::<Page>(Page::Page2)
             .icon(icon::from_name("applications-system-symbolic"));
 
         nav.insert()
-            .text(fl!("page-id", num = 3))
+            .text(fl!("battery"))
             .data::<Page>(Page::Page3)
+            .icon(icon::from_name("applications-games-symbolic"));
+
+        nav.insert()
+            .text(fl!("fans"))
+            .data::<Page>(Page::Page4)
+            .icon(icon::from_name("applications-games-symbolic"));
+
+        nav.insert()
+            .text(fl!("keyboard"))
+            .data::<Page>(Page::Page5)
+            .icon(icon::from_name("applications-games-symbolic"));
+
+        nav.insert()
+            .text(fl!("camera"))
+            .data::<Page>(Page::Page6)
             .icon(icon::from_name("applications-games-symbolic"));
 
         // Construct the app model with the runtime's core.
@@ -270,6 +285,9 @@ pub enum Page {
     Page1,
     Page2,
     Page3,
+    Page4,
+    Page5,
+    Page6
 }
 
 /// The context page to display in the context drawer.
