@@ -1,8 +1,9 @@
 [package]
-name = "cosmic-app-template"
+name = "cosmic-mcontrolcenter"
 version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0"
+repository = "https://github.com/ratnik2/mcontrolcenter"
 
 [dependencies]
 futures-util = "0.3.31"

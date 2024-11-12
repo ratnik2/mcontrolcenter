@@ -1,5 +1,5 @@
-name := 'cosmic-app-template'
-appid := 'com.example.CosmicAppTemplate'
+name := 'cosmic-mcontrolcenter'
+appid := 'com.radgit.mcontrolcenter'
 
 rootdir := ''
 prefix := '/usr'

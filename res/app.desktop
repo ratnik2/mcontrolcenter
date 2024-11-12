@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name={{APP_NAME}}
-Exec={{APP_BINARY}} %F
+Name=COSMIC MControlCenter
+Exec=cosmic-mcontrolcenter %F
 Terminal=false
 Type=Application
 StartupNotify=true
-Icon={{APP_ID}}
+Icon=com.radgit.mcontrolcenter
 Categories=COSMIC;
 Keywords=
 MimeType=
