@@ -6,13 +6,17 @@ use cosmic::app::{Core, Task};
 use cosmic::cosmic_config::{self, CosmicConfigEntry};
 use cosmic::iced::alignment::{Horizontal, Vertical};
 use cosmic::iced::{Alignment, Length, Subscription};
+use cosmic::iced_winit::commands::activation::activate;
+use cosmic::widget::canvas::Path;
 use cosmic::widget::{self, icon, menu, nav_bar};
 use cosmic::{cosmic_theme, theme, Application, ApplicationExt, Apply, Element};
 use futures_util::SinkExt;
 use std::collections::HashMap;
+use std::path::PathBuf;
+use std::usize;
 
 const REPOSITORY: &str = "https://github.com/ratnik2/mcontrolcenter";
-const APP_ICON: &[u8] = include_bytes!("../res/icons/hicolor/scalable/apps/icon.svg");
+const APP_ICON: &[u8] = include_bytes!("../res/icons/nav-bar/battery.svg");
 
 /// The application model stores app-specific state used to describe its interface and
 /// drive its logic.
@@ -65,36 +69,38 @@ impl Application for AppModel {
         // Create a nav bar with six page items.
         let mut nav = nav_bar::Model::default();
 
+        //let path1 = PathBuf::from("../res/icons/nav-bar/system-monitor-symbolic.svg");
+
         nav.insert()
             .text(fl!("info"))
             .data::<Page>(Page::Page1)
-            .icon(icon::from_name("applications-science-symbolic"))
-            .activate();
+            //.icon(icon::from_path(path1));
+            .icon(icon::from_name("system-monitor-symbolic"));
 
         nav.insert()
             .text(fl!("mode"))
             .data::<Page>(Page::Page2)
-            .icon(icon::from_name("applications-system-symbolic"));
+            .icon(icon::from_name("mode-symbolic"));
 
         nav.insert()
             .text(fl!("battery"))
             .data::<Page>(Page::Page3)
-            .icon(icon::from_name("applications-games-symbolic"));
+            .icon(icon::from_name("battery-symbolic"));
 
         nav.insert()
             .text(fl!("fans"))
             .data::<Page>(Page::Page4)
-            .icon(icon::from_name("applications-games-symbolic"));
+            .icon(icon::from_name("fan-symbolic"));
 
         nav.insert()
             .text(fl!("keyboard"))
             .data::<Page>(Page::Page5)
-            .icon(icon::from_name("applications-games-symbolic"));
+            .icon(icon::from_name("keyboard-symbolic"));
 
         nav.insert()
             .text(fl!("camera"))
             .data::<Page>(Page::Page6)
-            .icon(icon::from_name("applications-games-symbolic"));
+            .icon(icon::from_name("camera-web-symbolic"));
 
         // Construct the app model with the runtime's core.
         let mut app = AppModel {
